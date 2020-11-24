@@ -27,6 +27,13 @@
 			<label>HUMANITY</label>
 			<input type="number" name="attr_Humanity" /> out of <input type="number" name="attr_Humanity_max" />
 		</div>
+		<div class="whitebox">
+			<label>NEW CHARACTER</label>
+			<input type="hidden" name="attr_skillpoints" />
+			<input type="hidden" name="attr_statpoints" />
+			Skill Points remaining: <span name="attr_skillpoints"></span><br>
+			Stat Points remaining: <span name="attr_statpoints"></span>
+		</div>
 	</div>
 
 	<div class="hp section"> 
@@ -78,12 +85,12 @@
 	      			<td><input type="number" name="attr_LVL_LipReading" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_LipReading" value="@{LVL_LipReading}+@{Intelligence}" disabled="true" /></td>
 	    		</tr>	
-	    		<tr>
+	    		<tr class="basic">
 	      			<td><button name="roll_Perception" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Perception}+10+1d10]]}} {{failroll=[[@{Total_Perception}+1-1d10]]}} {{rollname=Perception}}  {{roll=[[@{Total_Perception}+1d10]]}}">Perception (INT)</button></td>
 	      			<td><input type="number" name="attr_LVL_Perception" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Perception" value="@{LVL_Perception}+@{Intelligence}" disabled="true" /></td>
 	    		</tr>
-	    		<tr class="basic">
+	    		<tr>
 	      			<td><button name="roll_Tracking" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Tracking}+10+1d10]]}} {{failroll=[[@{Total_Tracking}+1-1d10]]}} {{rollname=Tracking}}  {{roll=[[@{Total_Tracking}+1d10]]}}">Tracking (INT)</button></td>
 	      			<td><input type="number" name="attr_LVL_Tracking" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Tracking" value="@{LVL_Tracking}+@{Intelligence}" disabled="true" /></td>
@@ -148,7 +155,7 @@
 	      			<td><input type="number" name="attr_Total_DriveLand" value="@{LVL_DriveLand}+@{Reflex}" disabled="true" /></td>
 	    		</tr>
 	    		<tr>
-	      			<td><button name="roll_PilotAir" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_PilotAir}+10+1d10]]}} {{failroll=[[@{Total_PilotAir}+1-1d10]]}} {{rollname=Pilot Air Vehicle}}  {{roll=[[@{Total_PilotAir}+1d10]]}}">Pilot Air Vehicle (REF)</button></td>
+	      			<td><button name="roll_PilotAir" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_PilotAir}+10+1d10]]}} {{failroll=[[@{Total_PilotAir}+1-1d10]]}} {{rollname=Pilot Air Vehicle}}  {{roll=[[@{Total_PilotAir}+1d10]]}}">Pilot Air Vehicle (x2) (REF)</button></td>
 	      			<td><input type="number" name="attr_LVL_PilotAir" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_PilotAir" value="@{LVL_PilotAir}+@{Reflex}" disabled="true" /></td>
 	    		</tr>
@@ -243,7 +250,7 @@
 	      			<td class=subskill-header colspan=3>Language (INT)</td>
 	    		</tr>
 
-	    		<tr class=basic>
+	    		<tr class="basic">
 	      			<td><button name="roll_Streetslang" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Streetslang}+10+1d10]]}} {{failroll=[[@{Total_Streetslang}+1-1d10]]}} {{rollname=Streetslang}}  {{roll=[[@{Total_Streetslang}+1d10]]}}">Language: Streetslang</button></td>
 	      			<td><input type="number" name="attr_LVL_Streetslang" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Streetslang" value="@{LVL_Streetslang}+@{Intelligence}" disabled="true" /></td>
@@ -262,7 +269,7 @@
 	    		</tr>
 
 	    		<tr>
-	      			<td><button name="roll_LibrarySearch" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_LibrarySearch}+10+1d10]]}} {{failroll=[[@{Total_LibrarySearch}+1-1d10]]}} {{rollname=Library Search}}  {{roll=[[@{Total_LibrarySearch}+1d10]]}}">Library Search</button></td>
+	      			<td><button name="roll_LibrarySearch" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_LibrarySearch}+10+1d10]]}} {{failroll=[[@{Total_LibrarySearch}+1-1d10]]}} {{rollname=Library Search}}  {{roll=[[@{Total_LibrarySearch}+1d10]]}}">Library Search (INT)</button></td>
 	      			<td><input type="number" name="attr_LVL_LibrarySearch" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_LibrarySearch" value="@{LVL_LibrarySearch}+@{Intelligence}" disabled="true" /></td>
 	    		</tr>
@@ -271,7 +278,7 @@
 	      			<td class=subskill-header colspan=3>Local Expert (INT)</td>
 	    		</tr>
 
-	    		<tr class=basic>
+	    		<tr class="basic">
 	      			<td><button name="roll_YourHome" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_YourHome}+10+1d10]]}} {{failroll=[[@{Total_YourHome}+1-1d10]]}} {{rollname=Your Home}}  {{roll=[[@{Total_YourHome}+1d10]]}}">Local Expert: Your Home</button></td>
 	      			<td><input type="number" name="attr_LVL_YourHome" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_YourHome" value="@{LVL_YourHome}+@{Intelligence}" disabled="true" /></td>
@@ -306,13 +313,13 @@
 	    		</tr>
 
 	    		<tr>
-	      			<td><button name="roll_Tactics" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Tactics}+10+1d10]]}} {{failroll=[[@{Total_Tactics}+1-1d10]]}} {{rollname=Tactics}}  {{roll=[[@{Total_Tactics}+1d10]]}}">Tactics</button></td>
+	      			<td><button name="roll_Tactics" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Tactics}+10+1d10]]}} {{failroll=[[@{Total_Tactics}+1-1d10]]}} {{rollname=Tactics}}  {{roll=[[@{Total_Tactics}+1d10]]}}">Tactics (INT)</button></td>
 	      			<td><input type="number" name="attr_LVL_Tactics" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Tactics" value="@{LVL_Tactics}+@{Intelligence}" disabled="true" /></td>
 	    		</tr>
 
 	    		<tr>
-	      			<td><button name="roll_Wilderness" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Wilderness}+10+1d10]]}} {{failroll=[[@{Total_Wilderness}+1-1d10]]}} {{rollname=Wilderness Survival}}  {{roll=[[@{Total_Wilderness}+1d10]]}}">Wilderness Survival</button></td>
+	      			<td><button name="roll_Wilderness" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Wilderness}+10+1d10]]}} {{failroll=[[@{Total_Wilderness}+1-1d10]]}} {{rollname=Wilderness Survival}}  {{roll=[[@{Total_Wilderness}+1d10]]}}">Wilderness Survival (INT)</button></td>
 	      			<td><input type="number" name="attr_LVL_Wilderness" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Wilderness" value="@{LVL_Wilderness}+@{Intelligence}" disabled="true" /></td>
 	    		</tr>
@@ -340,7 +347,7 @@
 	      			<td><input type="number" name="attr_Total_Evasion" value="@{LVL_Evasion}+@{Dexterity}" disabled="true" /></td>
 	    		</tr>
 	    		<tr>
-	      			<td><button name="roll_Martial" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Martial}+10+1d10]]}} {{failroll=[[@{Total_Martial}+1-1d10]]}} {{rollname=Martial Arts}}  {{roll=[[@{Total_Martial}+1d10]]}}">Martial Arts (DEX)</button></td>
+	      			<td><button name="roll_Martial" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Martial}+10+1d10]]}} {{failroll=[[@{Total_Martial}+1-1d10]]}} {{rollname=Martial Arts}}  {{roll=[[@{Total_Martial}+1d10]]}}">Martial Arts (x2) (DEX)</button></td>
 	      			<td><input type="number" name="attr_LVL_Martial" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Martial" value="@{LVL_Martial}+@{Dexterity}" disabled="true" /></td>
 	    		</tr>	
@@ -404,7 +411,7 @@
 	      			<td><input type="number" name="attr_Total_Archery" value="@{LVL_Archery}+@{Reflex}" disabled="true" /></td>
 	    		</tr>
 	    		<tr>
-	      			<td><button name="roll_Autofire" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Autofire}+10+1d10]]}} {{failroll=[[@{Total_Autofire}+1-1d10]]}} {{rollname=Autofire}}  {{roll=[[@{Total_Autofire}+1d10]]}}">Autofire (REF)</button></td>
+	      			<td><button name="roll_Autofire" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Autofire}+10+1d10]]}} {{failroll=[[@{Total_Autofire}+1-1d10]]}} {{rollname=Autofire}}  {{roll=[[@{Total_Autofire}+1d10]]}}">Autofire (x2) (REF)</button></td>
 	      			<td><input type="number" name="attr_LVL_Autofire" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Autofire" value="@{LVL_Autofire}+@{Reflex}" disabled="true" /></td>
 	    		</tr>
@@ -430,7 +437,7 @@
 		    </thead>
 	        <tbody>
 	    		<tr>
-	      			<td><button name="roll_HeavyArms" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_HeavyArms}+10+1d10]]}} {{failroll=[[@{Total_HeavyArms}+1-1d10]]}} {{rollname=Heavy Weapons}}  {{roll=[[@{Total_HeavyArms}+1d10]]}}">Heavy Weapons (REF)</button></td>
+	      			<td><button name="roll_HeavyArms" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_HeavyArms}+10+1d10]]}} {{failroll=[[@{Total_HeavyArms}+1-1d10]]}} {{rollname=Heavy Weapons}}  {{roll=[[@{Total_HeavyArms}+1d10]]}}">Heavy Weapons (x2) (REF)</button></td>
 	      			<td><input type="number" name="attr_LVL_HeavyArms" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_HeavyArms" value="@{LVL_HeavyArms}+@{Reflex}" disabled="true" /></td>
 	    		</tr>
@@ -470,7 +477,7 @@
 	      			<td><input type="number" name="attr_LVL_Interrogation" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Interrogation" value="@{LVL_Interrogation}+@{Cool}" disabled="true" /></td>
 	    		</tr>
-	    	    <tr class=basic>
+	    	    <tr class="basic">
 	      			<td><button name="roll_Persuasion" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Persuasion}+10+1d10]]}} {{failroll=[[@{Total_Persuasion}+1-1d10]]}} {{rollname=Persuasion}}  {{roll=[[@{Total_Persuasion}+1d10]]}}">Persuasion (COOL)</button></td>
 	      			<td><input type="number" name="attr_LVL_Persuasion" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Persuasion" value="@{LVL_Persuasion}+@{Cool}" disabled="true" /></td>
@@ -532,7 +539,7 @@
 	      			<td><input type="number" name="attr_LVL_ElectronicsSecurity" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_ElectronicsSecurity" value="@{LVL_ElectronicsSecurity}+@{Technique}" disabled="true" /></td>
 	    		</tr>
-	    		<tr>
+	    		<tr class="basic">
 	      			<td><button name="roll_FirstAid" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_FirstAid}+10+1d10]]}} {{failroll=[[@{Total_FirstAid}+1-1d10]]}} {{rollname=First Aid}}  {{roll=[[@{Total_FirstAid}+1d10]]}}">First Aid (TECH)</button></td>
 	      			<td><input type="number" name="attr_LVL_FirstAid" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_FirstAid" value="@{LVL_FirstAid}+@{Technique}" disabled="true" /></td>
@@ -553,7 +560,7 @@
 	      			<td><input type="number" name="attr_Total_PaintDrawSculpt" value="@{LVL_PaintDrawSculpt}+@{Technique}" disabled="true" /></td>
 	    		</tr>
 	    		<tr>
-	      			<td><button name="roll_Paramedic" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Paramedic}+10+1d10]]}} {{failroll=[[@{Total_Paramedic}+1-1d10]]}} {{rollname=Paramedic}}  {{roll=[[@{Total_Paramedic}+1d10]]}}">Paramedic (TECH)</button></td>
+	      			<td><button name="roll_Paramedic" type="roll" class="txt-btn" value="&{template:skill} {{critroll=[[@{Total_Paramedic}+10+1d10]]}} {{failroll=[[@{Total_Paramedic}+1-1d10]]}} {{rollname=Paramedic}}  {{roll=[[@{Total_Paramedic}+1d10]]}}">Paramedic (x2) (TECH)</button></td>
 	      			<td><input type="number" name="attr_LVL_Paramedic" value="0"  /></td>
 	      			<td><input type="number" name="attr_Total_Paramedic" value="@{LVL_Paramedic}+@{Technique}" disabled="true" /></td>
 	    		</tr>
@@ -717,65 +724,83 @@
 <div class='lifepath'>
 	<div class="progression section">
 		<div class="alias section">
-			<div><textarea name="attr_aliases" spellcheck="false"></textarea></div>
-			<div><h4 style="text-align: right">ALIASES</h4></div>
+			<h4>ALIAS</h4>
+			<textarea name="attr_alias" spellcheck=false></textarea>
 		</div>
 		<div class="improvement section">
-			<div><h4 style="text-align: left">IMPROVEMENT POINTS</h4></div>
-			<div><input type=number name="attr_ippoints"></input></div>		
-			<div>out of</div>	
-			<div><input type=number name="attr_ippoints_max"></input></div>	
+			<h4>IMPROVEMENT POINTS</h4>
+			<textarea name="attr_ippoints" spellcheck=false></textarea>
 		</div>
 		<div class="reputation section">
-			<h4 style="text-align: left">REPUTATION</h4>
+			<h4>REPUTATION</h4>
+			<textarea name="attr_reputation" spellcheck=false></textarea>
 		</div>
 		<div class="repevents section">
-			<div><h4 style="text-align: left">REPUTATION EVENTS</h4></div>
-			<div><textarea name="attr_repevents" spellcheck="false"></textarea></div>
+			<h4>REPUTATION EVENTS</h4>
+			<textarea name="attr_repevents" spellcheck=false></textarea>
 		</div>
 	</div>
 	<div class="lp section">
 		<div><h4>CULTURAL ORIGINS</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_origins"></input>
 		</div>
 		<div><h4>PERSONALITY</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_personality"></input>
 		</div>
 		<div><h4>CLOTHING STYLE</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_clothingstyle"></input>
 		</div>
 		<div><h4>HAIRSTYLE</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_hairstyle"></input>
 		</div>
 		<div><h4>WHAT DO YOU VALUE MOST?</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_wdyvm"></input>
 		</div>
 		<div><h4>FEELINGS ABOUT PEOPLE?</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_feelings"></input>
 		</div>
 		<div><h4>MOST VALUED PERSON</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_mvperson"></input>
 		</div>
 		<div><h4>MOST VALUED POSSESSION</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_mvpossession"></input>
 		</div>
 		<div><h4>FAMILY BACKGROUND</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_fbackground"></input>
 		</div>
 		<div><h4>CHILDHOOD ENVIRONMENT</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_childhood"></input>
 		</div>
 		<div><h4>FAMILY CRISIS</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_fcrisis"></input>
 		</div>
 		<div><h4>LIFE GOALS</h4>
-			<input type=text name="attr_housing"></input>
+			<input type=text name="attr_lifegoals"></input>
 		</div>
 		<div><h4>FRIENDS</h4>
-			<textarea name="attr_housing"></textarea></input>
+			<textarea name="attr_friends"></textarea></input>
 		</div>
 		<div><h4>TRAGIC LOVE AFFAIRS</h4>
-			<textarea name="attr_housing"></textarea></input>
+			<textarea name="attr_tragiclove"></textarea></input>
+		</div>
+		<div class=enemies>
+			<div class=title><h3>ENEMIES</h3></div>
+			<div class=header><h4>Who?</h4></div>
+			<div class=header><h4>What Caused It?</h4></div>
+			<div class=header><h4>What Can They Throw At You?</h4></div>
+			<div class=header><h4>What's Gonna Happen?</h4></div>
+			<div class=item><textarea name="attr_enemy1"></textarea></div>
+			<div class=item><textarea name="attr_enemycause1"></textarea></div>
+			<div class=item><textarea name="attr_enemythreat1"></textarea></div>
+			<div class=item><textarea name="attr_enemeyend1"></textarea></div>
+			<div class=item><textarea name="attr_enemy2"></textarea></div>
+			<div class=item><textarea name="attr_enemycause2"></textarea></div>
+			<div class=item><textarea name="attr_enemythreat2"></textarea></div>
+			<div class=item><textarea name="attr_enemeyend2"></textarea></div>
+			<div class=item><textarea name="attr_enemy3"></textarea></div>
+			<div class=item><textarea name="attr_enemycause3"></textarea></div>
+			<div class=item><textarea name="attr_enemythreat3"></textarea></div>
+			<div class=item><textarea name="attr_enemeyend3"></textarea></div>
 		</div>
 	</div>
 	<div class="inventory section">
@@ -1265,6 +1290,80 @@ const buttonlist = ["character","lifepath","cyberware"];
             });
         });
     });
+
+const stats = ["Intelligence","Reflex","Dexterity","Technique","Cool","Willpower","Luck_max","Movement","Body","Empathy_max"];
+
+stats.forEach(function(stat) {
+    on(`change:${stat}`, function() {
+
+      getAttrs(stats, function(values) {
+
+      	var total = 62;
+
+      	for (var key of Object.keys(values)) {
+    		total = total - parseInt(values[key])||0;
+		}
+
+        setAttrs({
+          "statpoints" : total
+        });
+      });
+    });
+  });
+
+
+const easyskills = ["LVL_Trading", "LVL_Concentration", "LVL_ConcealReveal", "LVL_LipReading", "LVL_Perception"
+                   ,"LVL_Tracking", "LVL_Athletics", "LVL_Contortionist", "LVL_Dance"
+                   ,"LVL_Endurance", "LVL_TortureDrugs", "LVL_Stealth", "LVL_DriveLand"
+                   ,"LVL_PilotSea", "LVL_Riding", "LVL_Accounting", "LVL_AnimalHandling"
+                   ,"LVL_Bureaucracy", "LVL_Business", "LVL_Composition", "LVL_Criminology"
+                   ,"LVL_Cryptography", "LVL_Deduction", "LVL_Education", "LVL_Gamble"
+                   ,"LVL_Streetslang", "LVL_LanguageA", "LVL_LanguageB", "LVL_LibrarySearch"
+                   ,"LVL_YourHome", "LVL_LocalExpertA", "LVL_LocalExpertB", "LVL_ScienceA"
+                   ,"LVL_ScienceB", "LVL_Tactics", "LVL_Wilderness", "LVL_Brawling"
+                   ,"LVL_Evasion", "LVL_Melee", "LVL_Acting", "LVL_InstrumentA"
+                   ,"LVL_InstrumentB", "LVL_Archery", "LVL_Handgun", "LVL_ShoulderArms"
+                   ,"LVL_Bribery", "LVL_Conversation", "LVL_HumanPerception", "LVL_Interrogation"
+                   ,"LVL_Persuasion", "LVL_PersonalGrooming", "LVL_Streetwise", "LVL_Wardrobe"
+                   ,"LVL_AVTech", "LVL_BasicTech", "LVL_Cybertech", "LVL_FirstAid"
+                   ,"LVL_Forgery", "LVL_LVTech", "LVL_PaintDrawSculpt", "LVL_PhotographyFilm"
+                   ,"LVL_PickLock","LVL_PickPocket","LVL_SVTech","LVL_Weaponstech"];
+
+const hardskills = ["LVL_PilotAir", "LVL_Martial", "LVL_Autofire", "LVL_HeavyArms"
+                   ,"LVL_Demolitions", "LVL_ElectronicsSecurity", "LVL_Paramedic"];
+
+const allskills = easyskills.concat(hardskills);
+
+allskills.forEach(function(skill) {
+    on(`change:${skill}`, function() {
+
+   	  var total = 0;
+
+      getAttrs(easyskills, function(values) {
+
+      	for (var key of Object.keys(values)) {
+    		total = total + parseInt(values[key])||0;
+		}
+
+      });
+
+      getAttrs(hardskills, function(values) {
+
+      	for (var key of Object.keys(values)) {
+    		total = total + 2 * parseInt(values[key])||0;
+		}
+
+        setAttrs({
+          "skillpoints" : 86 - total
+        });
+      });
+
+
+    });
+  });
+
+
+
 
 const toggleList = ["cbaudio","lefteye","righteye","rightarm","leftarm","neurallink","rightleg","leftleg"];
 toggleList.forEach(function(button) {
