@@ -1,12 +1,17 @@
 <div class='main'>
+
+
 <div class="nav">
 		<div><button type="action" name="act_character" >CHARACTER</button></div>
 		<div><button type="action" name="act_lifepath" >LIFEPATH & INVENTORY</button></div>
 		<div><button type="action" name="act_cyberware" >CYBERWARE</button></div>
+		<div><button type="action" name="act_netrunning" >NETRUNNING</button></div>
 	</div>
 
-	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
 
+
+
+	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
 <div class='character'>
 
 
@@ -804,9 +809,9 @@
 		</div>
 	</div>
 	<div class="inventory section">
-		    <ul class="flex-gear">
-		    	<li class="gear-cash gear-name">Cash</li>
-				<li class="gear-item   gear-notes"><input type=text name="attr_cash" placeholder="Type here...">
+		    <ul class="flex-table">
+		    	<li class="bg-yellow gear-name">Cash</li>
+				<li class="gear-item gear-notes"><input type=text name="attr_cash" placeholder="Type here...">
 				</li>
 		    	<li class="gear-ammunition gear-name">Ammunition</li>
 				<li class="gear-item   gear-notes"><input type=text name="attr_ammunition" placeholder="Type here...">
@@ -1054,10 +1059,146 @@
 	</div>
 </div>
 
-<div class="foot">
+<div class='netrunning'>
+	
+	<input type='hidden' name='attr_totalNetActions' value='6' />
+
+	<div class="interface">
+		<div class="title"><h1>interface.exe</h1></div>
+		<div class="rank"><h6>rank</h6> <input type=number name="attr_rankInterface"></div>
+		<div class="netactions"><h3>total-net-actions: <span name='attr_totalNetActions'></span></h3></div>
+		<div class="general"><h6>general-slots</h6>
+			<div><input type=text name="attr_slots_all"></div>
+		</div>
+		<div class="hardslots"><h6>hardware-only</h6>
+			<div><input type=text name="attr_slots_hardware"></div>
+		</div>
+		<div class="program"><h6>program-only</h6>
+			<div><input type=text name="attr_slots_program"></div>
+		</div>
+	</div>
+
+	<div class="nav">
+			<div><button type="action" name="act_nbi" >NBI-PROGRAMS</button></div>
+			<div><button type="action" name="act_blackice" >BLACK-ICE</button></div>
+			<div><button type="action" name="act_hardware" >HARDWARE</button></div>
+	</div>
 		
+	<input type='hidden' class='sheet-netruntoggle' name='attr_netrunTab' value='nbi' />
+	
+	<div class="nbiprogram">		
+	    <div class="flex-table">
+	    	<div class="bg-yellow max-width">/usr/bin/non-blackICE-programs/</div>
+			<div class="bg-black program-name">name</div>
+			<div class="bg-black program-class">class</div>
+			<div class="bg-black program-atk">ATK</div>
+			<div class="bg-black program-def">DEF</div>
+			<div class="bg-black program-rez">REZ</div>
+			<div class="bg-black program-effect">effect</div>
+		</div>
 
+		<fieldset class="repeating_nbi">
+		<div class="flex-table">
+			<div class="bg-black-item program-name">
+				<input type=text name="attr_programname" placeholder="type here...">
+			</div>
+			<div class="bg-black-item program-class">
+				<select name="attr_programclass">
+						<option value="booster">booster</option>
+    					<option value="defender">defender</option>
+    					<option value="anti-program">anti-program-attacker</option>
+    					<option value="anti-personnel">anti-personnel-attacker</option>
+  					</select>
+			</div>
+			<div class="bg-black-item program-atk">
+				<input type=number name="attr_programatk">
+			</div>
+			<div class="bg-black-item program-def">
+				<input type=number name="attr_programdef">
+			</div>
+			<div class="bg-black-item program-rez">
+				<input type=number name="attr_programrez">
+			</div>
+			<div class="bg-black-item program-effect auto-expand">
+				<span name="attr_programeffects"></span>
+				<textarea spellcheck="false" name="attr_programeffects"></textarea>
+			</div>
+		</div>
+		</fieldset>
+	</div>
 
+	<div class="blackice">		
+	    <div class="flex-table">
+	    	<div class="bg-yellow max-width">/usr/bin/.blackICE-programs/</div>
+			<div class="bg-black bi-name">name</div>
+			<div class="bg-black bi-class">class</div>
+			<div class="bg-black bi-per">PER</div>
+			<div class="bg-black bi-sod">SPD</div>
+			<div class="bg-black bi-atk">ATK</div>
+			<div class="bg-black bi-def">DEF</div>
+			<div class="bg-black bi-rez">REZ</div>
+			<div class="bg-black bi-effect">effect</div>
+		</div>
+
+		<fieldset class="repeating_blackice">
+		<div class="flex-table">
+			<div class="bg-black-item bi-name">
+				<input type=text name="attr_biname" placeholder="type here...">
+			</div>
+			<div class="bg-black-item bi-class">
+				<select name="attr_biclass">
+						<option value="demon">demon</option>
+    					<option value="anti-program">anti-program</option>
+    					<option value="anti-personnel">anti-personnel</option>
+  					</select>
+			</div>
+			<div class="bg-black-item bi-per">
+				<input type=number name="attr_biper">
+			</div>
+			<div class="bg-black-item bi-spd">
+				<input type=number name="attr_bispd">
+			</div>
+			<div class="bg-black-item bi-atk">
+				<input type=number name="attr_biatk">
+			</div>
+			<div class="bg-black-item bi-def">
+				<input type=number name="attr_bidef">
+			</div>
+			<div class="bg-black-item bi-rez">
+				<input type=number name="attr_birez">
+			</div>
+			<div class="bg-black-item bi-effect auto-expand">
+				<span name="attr_bieffects"></span>
+				<textarea spellcheck="false" name="attr_bieffects"></textarea>
+			</div>
+		</div>
+		</fieldset>
+	</div>
+
+	<div class="hardware">		
+	    <div class="flex-table">
+	    	<div class="bg-yellow max-width">/proc/cyberdeck-hardware/system.info</div>
+			<div class="bg-black hardware-name">name</div>
+			<div class="bg-black hardware-data">data</div>
+		</div>
+
+		<fieldset class="repeating_hardware">
+		<div class="flex-table">
+			<div class="bg-black-item hardware-name">
+				<input type=text name="attr_hardwarename" placeholder="type here...">
+			</div>
+			<div class="bg-black-item hardware-data auto-expand">
+				<span name="attr_hardwaredata"></span>
+				<textarea spellcheck="false" name="attr_hardwaredata"></textarea>
+			</div>
+		</div>
+		</fieldset>
+	</div>
+
+	
+</div>
+
+<div class="foot">
 </div>
 
 
@@ -1206,6 +1347,37 @@
 
 <script type="text/worker">
 
+on("change:rankInterface", function() {
+	getAttrs([
+		"rankInterface"
+	], function(values) {
+
+		const rank = parseInt(values.rankInterface)||0;
+
+		setAttrs({
+			"totalNetActions" : rank > 0 ? Math.ceil(rank/3) + 1 : 0
+		});
+
+	});
+});
+
+on("change:Willpower change:Body sheet:opened", function() {
+	getAttrs([
+		"Willpower",
+		"Body"
+	], function(values) {
+
+		const WILL = parseInt(values.Willpower)||0;
+		const BODY = parseInt(values.Body)||0;
+
+		var maxhp = 10 + 5 * Math.ceil((WILL+BODY)/2);
+
+		setAttrs({
+			"hp_max" : maxhp
+		});
+	});
+});
+
 on("change:Willpower change:Body sheet:opened", function() {
 	getAttrs([
 		"Willpower",
@@ -1282,11 +1454,20 @@ on("change:repeating_weapons:Weapontype", function() {
 	});
 });
 
-const buttonlist = ["character","lifepath","cyberware"];
+const buttonlist = ["character","lifepath","cyberware","netrunning"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
             setAttrs({
                 sheetTab: button
+            });
+        });
+    });
+
+const netrunlist = ["nbi","blackice","hardware"];
+    netrunlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                netrunTab: button
             });
         });
     });
