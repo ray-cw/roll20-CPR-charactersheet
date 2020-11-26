@@ -687,8 +687,10 @@
 						<option value="Melee">Melee</option>
     					<option value="Pistol">Pistol</option>
     					<option value="SMG">SMG</option>
+    					<option value="SMG (Autofire)">SMG (Autofire)</option>
     					<option value="Shotgun (Slug)">Shotgun (Slug)</option>
     					<option value="Assault Rifle">Assault Rifle</option>
+    					<option value="AR (Autofire)">AR (Autofire)</option>
     					<option value="Sniper Rifle">Sniper Rifle</option>
     					<option value="Bow/Crossbow">Bow/Crossbow</option>
     					<option value="Grenade Launcher">Grenade Launcher</option>
@@ -1314,6 +1316,15 @@
 		<div>30</div><div>N/A</div>
 		{{/SMG}}
 
+		<!-- Table for SMG - Autofire -->
+
+		{{#SMG (Autofire)}}
+		<div>20</div><div>17</div>
+		<div>20</div><div>25</div>
+		<div>30</div><div>N/A</div>
+		<div>N/A</div><div>N/A</div>
+		{{/SMG (Autofire)}}
+
 		<!-- Table for Shotguns -->
 
 		{{#Shotgun (Slug)}}
@@ -1323,7 +1334,7 @@
 		<div>N/A</div><div>N/A</div>
 		{{/Shotgun (Slug)}}
 
-		<!-- Table for Pistols -->
+		<!-- Table for Assault Rifles -->
 
 		{{#Assault Rifle}}
 		<div>17</div><div>16</div>
@@ -1331,6 +1342,15 @@
 		<div>15</div><div>20</div>
 		<div>25</div><div>30</div>
 		{{/Assault Rifle}}
+
+		<!-- Table for Assault Rifles -->
+
+		{{#AR (Autofire)}}
+		<div>22</div><div>20</div>
+		<div>17</div><div>20</div>
+		<div>25</div><div>N/A</div>
+		<div>N/A</div><div>N/A</div>
+		{{/AR (Autofire)}}
 
 		<!-- Table for Pistols -->
 
@@ -1439,6 +1459,7 @@ on("change:repeating_weapons:Weapontype", function() {
 		"LVL_HeavyArms",
 		"LVL_ShoulderArms",
 		"LVL_Melee",
+		"LVL_Autofire",
 		"Reflex",
 		"Dexterity"
 	], function(values) {
@@ -1451,6 +1472,7 @@ on("change:repeating_weapons:Weapontype", function() {
 		const HeavyArms = parseInt(values.LVL_HeavyArms)||0;
 		const Melee = parseInt(values.LVL_Melee)||0;
 		const ShoulderArms = parseInt(values.LVL_ShoulderArms)||0;
+		const Autofire = parseInt(values.LVL_Autofire)||0;
 
 		switch(values.repeating_weapons_Weapontype) {
 			case "Melee":
@@ -1462,11 +1484,14 @@ on("change:repeating_weapons:Weapontype", function() {
 			case "SMG":
 				weaponmod = REF + Handgun;
 				break;
+			case "SMG (Autofire)":
+				weaponmod = REF + Autofire;
+				break;
 			case "Shotgun (Slug)":
 				weaponmod = REF + ShoulderArms;
 				break;
-			case "Assault Rifle":
-				weaponmod = REF + ShoulderArms;
+			case "AR (Autofire)":
+				weaponmod = REF + Autofire;
 				break;
 			case "Sniper Rifle":
 				weaponmod = REF + ShoulderArms;
