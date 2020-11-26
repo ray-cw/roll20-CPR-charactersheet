@@ -38,8 +38,6 @@ input[type=number] {
 
 
 
-
-
 .sheet-netruntoggle[value="nbi"] ~ div.sheet-nbiprogram 
 ,.sheet-netruntoggle[value="blackice"] ~ div.sheet-blackice 
 ,.sheet-netruntoggle[value="hardware"] ~ div.sheet-hardware {
@@ -95,14 +93,34 @@ select {
 
 .sheet-nav {
   display: flex;
-}
-
-.sheet-netrunning .sheet-nav {
   align-items: flex-end;
 }
-
 .sheet-nav div {
   margin-right: 5px;
+}
+
+.sheet-new-char {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sheet-new-char div {
+  border: solid 1px white;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.sheet-small {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.sheet-big {
+  font-size: 4.6rem;
+  font-weight: bold;
 }
 
 /*----------------- NETRUNNING SHEET ------------------*/
@@ -238,6 +256,14 @@ select {
   padding: 4px;
 }
 
+.sheet-bg-red {
+  background: #CD272C;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 4px;
+  padding: 4px;
+}
+
 .sheet-bg-white {
   background: white;
   color: black;
@@ -258,8 +284,7 @@ select {
 }
 
 .sheet-program-name{
-  width: 18%;
-  
+  width: 18%; 
 }
 
 .sheet-program-class{
@@ -269,7 +294,8 @@ select {
 
 .sheet-program-atk,
 .sheet-program-def,
-.sheet-program-rez {
+.sheet-program-rez,
+.sheet-delete {
   width: 4%;
   
 }
@@ -311,6 +337,30 @@ select {
 .sheet-hardware-data{
   width: 79.5%;
   
+}
+
+/* Customizing the repeating section for netrunning */
+
+.sheet-netrunning .repcontrol_del {
+  position: relative;
+  left: 4%;
+
+}
+
+.sheet-netrunning .repcontrol_add,
+.sheet-netrunning .repcontrol_edit {
+    display: block;
+    background: #fae800;
+    color: black;
+    border: 1px solid black;
+    box-shadow:none;
+    text-shadow: none;
+}
+
+[data-groupname=repeating_nbi] > button.btn.repcontrol_add::after {
+    content: "Install";
+    background-color:#fae800;
+    margin-left:-30px;
 }
 
 
@@ -712,19 +762,6 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   width: 1em !important;
 }
 
-.sheet-hp input {
-  height: 1.3em !important;
-  border: 0;
-  text-align:center;
-  padding: 0;
-  margin: 0 5px;
-  font-size: 2rem;
-  width: 1.6em !important;
-}
-
-.sheet-hp .sheet-health label {
-  text-align: right;
-}
 
 
 .sheet-skills input[type=number], .sheet-weaponarmor input[type=number] {
@@ -853,7 +890,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   grid-template-rows: 1fr 2fr;
   grid-template-columns: 1fr 1fr;
   grid-gap: 4px;
-  grid-template-areas:"health deathsave"
+  grid-template-areas:"deathsave deathsave"
                       "injuries addictions";
 }
 
@@ -883,21 +920,58 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 
 .sheet-hp .sheet-deathsave{
   grid-area: deathsave;
-  padding: 10px;
   background: none;
   text-align: left;
   color:#fff;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   font-size:1.4rem;
+  grid-gap: 4px;
+}
+
+.sheet-hp .sheet-deathsave div{
+  background: #2a2a2a;
+  color:#fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.sheet-clipleft {
+  clip-path: 
+    polygon(
+      0% 30px,                 /* top left */
+      30px 0%,                 /* top left */
+      100% 0%,
+      100% 100%,               /* bottom right */
+      0%   100%                    /* bottom left */
+    );  
+}
+
+.sheet-clipright {
+  clip-path: 
+    polygon(
+      0% 0%,                /* top left */
+      calc(100% - 30px) 0%,
+      100% 30px,
+      100% 100%,               /* bottom right */
+      0%   100%                    /* bottom left */
+    );  
+}
+
+.sheet-deathsave div.sheet-darker {
+  background: #0f0f0f;
 }
 
 .sheet-hp .sheet-deathsave input{
-  font-size:1.4rem;
-  text-align:left;
-  width: 1em !important;
+  font-size: 4.6rem;
   background: none;
   color:#fff;
+  text-align: center;
+  width: 8rem;
+  border: none;
 }
 
 .sheet-hp .sheet-health,

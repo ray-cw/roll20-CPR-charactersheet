@@ -6,7 +6,7 @@
 		<div><button type="action" name="act_lifepath" >LIFEPATH & INVENTORY</button></div>
 		<div><button type="action" name="act_cyberware" >CYBERWARE</button></div>
 		<div><button type="action" name="act_netrunning" >NETRUNNING</button></div>
-	</div>
+</div>
 
 
 
@@ -53,22 +53,20 @@
 			</div>
 		</div>
 
-		<div class="humanity">
-			<div class="title white-bg"><h3>HUMANITY</h3></div>
-			<div class="humanity-table">
-				<div class="white-bg">CURRENT</div>
-				<div class="red-bg">MAX</div>
-				<div class="white-bg"><input type="number" name="attr_Humanity" /></div>
-				<div class="red-bg"><input type="number" name="attr_Humanity_max" /></div>
-			</div>
-		</div>
+		<input type="hidden" name="attr_skillpoints" />
+		<input type="hidden" name="attr_statpoints" />
 
-		<div class="prof-info">
-			<h3>NEW CHARACTER</h3>
-			<input type="hidden" name="attr_skillpoints" />
-			<input type="hidden" name="attr_statpoints" />
-			Skill Points remaining: <span name="attr_skillpoints"></span><br>
-			Stat Points remaining: <span name="attr_statpoints"></span>
+		<div class="new-char">
+			<div class="red-bg">
+			<span class="small">SKILL POINTS</span>
+			<span class="big" name="attr_skillpoints"></span>
+			<span class="small">REMAINING</span>
+			</div>
+			<div class="white-bg">
+			<span class="small">STAT POINTS</span>
+			<span class="big" name="attr_statpoints"></span>
+			<span class="small">REMAINING</span>
+			</div>
 		</div>
 	</div>
 
@@ -83,12 +81,23 @@
 		</div>
 		<div class="deathsave">
 			
-			<div>DEATH SAVE: <span name="attr_Body"></span></div>
-			<div>BASE PENALTY: <input type="number" name="attr_basedeathpenalty" /></div>
-			<div>TOTAL PENALTY: <input type="number" name="attr_deathsavepenalty" /></div>
+			<div class="clipleft">
+				<span class="big" name="attr_Body"></span>
+				<span class="small">DEATH SAVE</span>
+			</div>
+			<div class="darker">
+				<input type="number" name="attr_basedeathpenalty" />
+				<span class="small">DEATH PENALTY</span>
+			</div>
+			<div class="clipright">
+				<input type="number" name="attr_deathsavepenalty" />
+				<span class="small">OTHER MODS</span>
+			</div>
 
 		</div>
 	</div>
+
+
 
 	<div class="skills skillA section">
 
@@ -1149,6 +1158,7 @@
 				<span name="attr_programeffects"></span>
 				<textarea spellcheck="false" name="attr_programeffects"></textarea>
 			</div>
+
 		</div>
 		</fieldset>
 	</div>
