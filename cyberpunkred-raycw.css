@@ -19,14 +19,17 @@ input[type=number] {
 .sheet-character,
 .sheet-lifepath,
 .sheet-cyberware,
-.sheet-netrunning {
+.sheet-netrunning, 
+.sheet-new-char {
   display: none;
 }
+
 
 .sheet-tabstoggle[value="character"] ~ div.sheet-character,
 .sheet-tabstoggle[value="lifepath"] ~ div.sheet-lifepath,
 .sheet-tabstoggle[value="cyberware"] ~ div.sheet-cyberware,
-.sheet-tabstoggle[value="netrunning"] ~ div.sheet-netrunning {
+.sheet-tabstoggle[value="netrunning"] ~ div.sheet-netrunning,
+.sheet-shownewcharacter[value="1"] ~ .sheet-profile div.sheet-new-char {
   display: grid;
 }
 
@@ -100,7 +103,6 @@ select {
 }
 
 .sheet-new-char {
-  display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -805,7 +807,18 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   grid-area: profile;
   display: grid;
   grid-gap: 4px;
+
+  
 }
+
+.sheet-shownewcharacter[value="0"] ~ .sheet-profile {
+  grid-template-rows: 1fr 1fr 1fr 5fr 1.5fr 1.5fr;
+}
+
+.sheet-shownewcharacter[value="1"] ~ .sheet-profile {
+  grid-template-rows: 1.5fr 1fr 1fr 1fr auto 1.5fr 1.5fr;
+}
+
 
 .sheet-profile div.sheet-prof-info {
   background:white;
@@ -834,7 +847,6 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 4fr;
-  height: 100%;
   width: 100%;
   background: none;
 }
