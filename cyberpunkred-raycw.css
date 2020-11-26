@@ -228,20 +228,20 @@ select {
 }
 
 .sheet-netrunning select {
-  background: black;
+  background: #0f0f0f;
   color: #fae800;
 }
 
 .sheet-bg-yellow {
   background: #fae800;
-  color: black;
+  color: #0f0f0f;
   font-weight: bold;
   margin-bottom: 4px;
   padding: 4px;
 }
 
 .sheet-bg-black {
-  background: black;
+  background: #0f0f0f;
   color: #fae800;
   font-weight: bold;
   margin-bottom: 4px;
@@ -249,7 +249,7 @@ select {
 }
 
 .sheet-bg-black-2 {
-  background: black;
+  background: #0f0f0f;
   color: white;
   font-weight: bold;
   margin-bottom: 4px;
@@ -266,14 +266,14 @@ select {
 
 .sheet-bg-white {
   background: white;
-  color: black;
+  color: #0f0f0f;
   font-weight: bold;
   margin-bottom: 4px;
   padding: 4px;
 }
 
 .sheet-bg-black-item {
-  background: black;
+  background: #0f0f0f;
   color: white;
   margin-bottom: 4px;
   padding: 4px;
@@ -351,8 +351,8 @@ select {
 .sheet-netrunning .repcontrol_edit {
     display: block;
     background: #fae800;
-    color: black;
-    border: 1px solid black;
+    color: #0f0f0f;
+    border: 1px solid #0f0f0f;
     box-shadow:none;
     text-shadow: none;
 }
@@ -459,7 +459,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 
 .sheet-cyberware .sheet-cwtable div.sheet-cyberware-header {
   color: #fff;
-  background: black;
+  background: #0f0f0f;
   font-weight: bold;
  }
 
@@ -693,7 +693,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 .sheet-skills th, .sheet-weaponarmor th {
   padding: 0.2rem 0.5rem;
   color: white;
-  background: black;
+  background: #0f0f0f;
   text-align: center;
 }
 
@@ -1162,7 +1162,7 @@ td.sheet-subskill-header {
 }
 
 .sheet-rolltemplate-attack div.sheet-rolltemplate-table div.sheet-header {
-  background: black;
+  background: #0f0f0f;
   color:#fff;
 }
 

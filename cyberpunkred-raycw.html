@@ -748,7 +748,7 @@
 			<label>MOVE</label><input type="number" name="attr_Movement" />
 		</div>
 		<div class='statbox'>
-			<label>BODY</label><input type="number" name="attr_Body" />
+			<label>BODY</label><input type="number" name="attr_Body" value=0 />
 		</div>
 		<div class='statbox outof'>
 			<label>EMP</label><input type="number" name="attr_Empathy" /> of <input type="number" name="attr_Empathy_max" />
@@ -864,7 +864,7 @@
 	</div>
 	<div class="personal section">
 		<div class="fashion"><h4>FASHION</h4>
-			<textarea></textarea></div>
+			<textarea name="attr_fashion"></textarea></div>
 		<div class="housing"><h4>HOUSING</h4>
 			<input type=text name="attr_housing"></input></div>
 		<div class="rent"><h4>RENT</h4>
@@ -874,7 +874,7 @@
 	</div>
 	<div class="rolespecific section">
 		<div class="rolespecificdetails"><h4>ROLE SPECIFIC LIFEPATH</h4>
-			<textarea></textarea>
+			<textarea name="attr_rolespecific"></textarea>
 		</div>
 	</div>
 </div>
@@ -1518,7 +1518,7 @@ stats.forEach(function(stat) {
       	var total = 62;
 
       	for (var key of Object.keys(values)) {
-    		total = total - parseInt(values[key])||0;
+    		total = total - (parseInt(values[key])||0);
 		}
 
         setAttrs({
