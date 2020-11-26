@@ -47,7 +47,9 @@ input[type=number] {
   grid-area: 2 / 1 / 3 / 4;
 }
 
-
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 select {
   border: none;
@@ -64,6 +66,7 @@ select {
   grid-template-rows: auto auto auto auto 80px;
   grid-gap: 4px;
   font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 
@@ -112,10 +115,18 @@ select {
   font-family: 'Source Code Pro', monospace;
 }
 
+.sheet-largeinput input {
+  font-size: 2.7rem;
+}
+
+.sheet-biginput input {
+  font-size: 1.8rem;
+}
+
 .sheet-netrunning textarea {
   width: 100%;
   border: none;
-  box-sizing: border-box;
+  
   resize: none;
   background: none;
   color: #fff;
@@ -219,6 +230,14 @@ select {
   padding: 4px;
 }
 
+.sheet-bg-black-2 {
+  background: black;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 4px;
+  padding: 4px;
+}
+
 .sheet-bg-white {
   background: white;
   color: black;
@@ -240,34 +259,34 @@ select {
 
 .sheet-program-name{
   width: 18%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-program-class{
   width: 26%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-program-atk,
 .sheet-program-def,
 .sheet-program-rez {
   width: 4%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-program-effect{
   width: 42%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-bi-name{
   width: 13%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-bi-class{
   width: 17%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-bi-per,
@@ -276,22 +295,22 @@ select {
 .sheet-bi-def,
 .sheet-bi-rez {
   width: 4%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-bi-effect{
   width: 47%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-hardware-name{
   width: 20%;
-  box-sizing: border-box;
+  
 }
 
 .sheet-hardware-data{
   width: 79.5%;
-  box-sizing: border-box;
+  
 }
 
 
@@ -458,106 +477,56 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   grid-gap: 4px;
 }
 
-.sheet-progression .sheet-alias {
+.sheet-progression div
+, .sheet-lp div
+, .sheet-personal div
+, .sheet-rolespecific div{
+  display: flex;
   background: white;
+  padding: 4px;
+  flex-direction: column;
+}
+
+.sheet-progression .sheet-alias {
   grid-area: 1 / 1 / 2 / 3 ;
 }
 
-
-.sheet-progression .sheet-alias div {
-  padding: 10px;
-}
-
 .sheet-progression .sheet-improvement {
-  background: white;
   grid-area: 2 / 1 / 3 / 2 ;
-  justify-content: space-between;
-}
-
-.sheet-progression .sheet-improvement div,
-.sheet-progression .sheet-repevents div,
-.sheet-progression .sheet-reputation div {
-  padding: 4px;
 }
 
 .sheet-progression .sheet-reputation {
-  background: white;
   grid-area: 3 / 1 / 4 / 2 ;
 }
 
-
-
 .sheet-progression .sheet-repevents {
-  background: white;
   grid-area: 2 / 2 / 4 / 3 ;
 }
-
-
 
 .sheet-inventory {
   grid-area: inventory;
 }
 
-.sheet-flex-gear {
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.sheet-flex-gear input{
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sheet-gear-header {
-  background: black;
-  color: white;
-  font-weight: bold;
-  margin-bottom: 4px;
-  padding: 4px;
-}
-
-.sheet-gear-cash, .sheet-gear-ammunition {
-  background: #fae800;
-  color: black;
-  font-weight: bold;
-  margin-bottom: 4px;
-  padding: 4px;
-}
-
-.sheet-gear-item {
-  background: white;
-  color: black;
-  margin-bottom: 4px;
-  padding: 4px;
-}
-
 .sheet-gear-name{
-  width: 35%;
+  width: 35%;  
 }
 
+.sheet-gear-notes{
+  width: 64%;  
+}
 .sheet-gear-name input, .sheet-gear-notes input,{
   width: 100%;
 }
 
-.sheet-gear-notes{
-  width: 61%;
-}
-
 .sheet-rolespecific {
   grid-area: rolespecific;
-  display: grid;
-  grid-gap: 4px;
-  grid-template-columns: auto; 
+  padding: 4px;
 }
 
 .sheet-rolespecific .sheet-rolespecificdetails {
   background: white;
   padding: 4px;
+  height: 100%;
 }
 
 .sheet-personal {
@@ -568,18 +537,9 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   grid-gap: 4px;
 }
 
-.sheet-personal div {
-  padding: 4px;
-  background: white;
-}
-
-
 .sheet-personal .sheet-fashion {
   grid-area: 1 / 1 / 2 / 4;
 }
-
-
-
 
 .sheet-personal .sheet-housing {
   grid-area: 2 / 1 / 3 / 2;
@@ -601,10 +561,6 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   grid-gap:4px;
 }
 
-.sheet-lp div{
-  background: white;
-  padding: 4px;
-}
 
 .sheet-lp .sheet-enemies{
   grid-column: 1 / 3;
@@ -633,42 +589,27 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   border-radius: 5px;
 }
 
-.sheet-lp .sheet-enemies .sheet-item textarea{
-  background: none;
-}
 
-.sheet-lp input, .sheet-lp textarea, .sheet-progression textarea, .sheet-personal textarea, .sheet-rolespecific textarea, 
-.sheet-personal input {
+
+.sheet-lifepath input, 
+.sheet-lifepath textarea,
+.sheet-profile input,
+.sheet-profile textarea {
   width: 100%;
   border: none;
-  box-sizing: border-box;
+  height: 100%;
   resize: none;
+  margin: 0;
+  padding: 0;
 }
 
 
 
 /*----------------- GENERAL CSS ------------------*/
 
-textarea {
-  width: 90%;
-  height: auto;
-}
-
 .sheet-section {
-    padding: 5px;
+    padding: 4px;
     background-color: #CD272C;
-}
-
-
-
-.sheet-flex-col {
-  display: flex;
-  flex-flow: row wrap;
-  /*justify-content: flex-start;*/
-}
-
-.sheet-flex-center {
-  justify-content: center;
 }
 
 .sheet-statbox {
@@ -693,7 +634,7 @@ textarea {
 
 
 .sheet-skills table, .sheet-weaponarmor table {
-  border-spacing: 0.5rem;
+  border-spacing: 4px;
   border-collapse: separate;
   width: 100%;
   font-size: 1.2rem;
@@ -708,7 +649,7 @@ textarea {
 
 .sheet-skills th:first-child {
   text-align: left;
-  width: 190px;
+  width: 200px;
 }
 
 .sheet-weaponarmor th:first-child {
@@ -737,10 +678,6 @@ textarea {
 
 .sheet-languages{
   width: 50px !important;
-}
-
-.sheet-weaponarmor .sheet-armor button, .sheet-weaponarmor .sheet-weapon button,{
-  width: 35px !important;
 }
 
 .sheet-local-expert{
@@ -817,23 +754,6 @@ textarea {
   padding: 0 !important;
 }
 
-.sheet-whitebox {
-  background:white;
-  overflow: hidden;
-  margin: 5px;
-  padding: 5px;
-}
-
-.sheet-whitebox textarea{
-  width:96%;
-  height:300px;
-  resize: none;
-  border: none;
-}
-
-
-
-
 .sheet-hp textarea{
   width:96%;
   height:90px;
@@ -846,7 +766,66 @@ textarea {
 
 .sheet-profile {
   grid-area: profile;
+  display: grid;
+  grid-gap: 4px;
 }
+
+.sheet-profile div.sheet-prof-info {
+  background:white;
+  overflow: hidden;
+  display: flex;
+  background: white;
+  padding: 4px;
+  flex-direction: column;
+}
+
+.sheet-profile div.sheet-humanity {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.sheet-profile .sheet-humanity .sheet-title {
+  padding: 4px;
+  width: 150px;
+}
+
+
+.sheet-humanity-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 4fr;
+  height: 100%;
+  width: 100%;
+  background: none;
+}
+
+.sheet-humanity-table div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.sheet-humanity-table input[type=number]
+,.sheet-humanity-table  span {
+  width: 7rem;
+  font-size: 4rem;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.sheet-red-bg, .sheet-red-bg input, .sheet-red-bg h3 {
+  background: none;
+  color:#fff;
+}
+
+.sheet-white-bg, .sheet-white-bg input {
+  background: #fff;
+}
+
 
 .sheet-stats {
   grid-area: stats;
@@ -957,57 +936,26 @@ textarea {
   padding: 5px;
 }
 
-.sheet-flex-weapons {
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.sheet-weapon-header {
-  background: black;
-  color: white;
-  font-weight: bold;
-  margin-right: 4px;
-  margin-bottom: 4px;
-  padding: 4px;
-}
-
-.sheet-weapon-item {
-  background: white;
-  color: black;
-  margin-right: 4px;
-  margin-bottom: 4px;
-  padding: 4px;
-}
-
 .sheet-weapon-name{
-  width: 184px;
+  width: 37%;
 }
 
 .sheet-weapon-type{
-  width: 124px;
+  width: 28%;
 }
 
 .sheet-dmg{
-  width: 50px;
+  width: 12%;
   text-align:center;
 }
 
 .sheet-ammo{
-  width: 48px;
-  text-align:center;
-}
-
-.sheet-ammo input[type=number]{
-  width: 21px;
+  width: 12%;
   text-align:center;
 }
 
 .sheet-rof{
-  width: 25px;
+  width: 8%;
   text-align:center;
 }
 
@@ -1250,7 +1198,7 @@ td.sheet-subskill-header {
   height: 100%;
   width: 100%;
   display: block;
-  box-sizing: border-box;
+  
   background: transparent;
   border: none;
   border-radius: 0;
@@ -1274,8 +1222,6 @@ td.sheet-subskill-header {
   list-style: none;
 }
 
-
-
 .sheet-flex-table div {
   display: flex;
   align-items: center;
@@ -1287,7 +1233,14 @@ td.sheet-subskill-header {
   margin: 0;
   padding: 0;
   width: 100% !important;
-  box-sizing: border-box;
-  text-align: center;
   height: auto;
+}
+
+.sheet-netrunning .sheet-flex-table input{
+  text-align: center;
+}
+
+.sheet-break {
+  flex-basis: 100%;
+  height: 0;
 }

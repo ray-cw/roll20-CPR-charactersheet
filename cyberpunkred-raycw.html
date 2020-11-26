@@ -16,24 +16,55 @@
 
 
 	<div class="profile section"> 
-		<div class="whitebox">
-			<label>HANDLE</label><input type="text" name="attr_character_name" />
+		<div class="prof-info largeinput">
+			<h3>HANDLE</h3><input type="text" name="attr_character_name" />
 		</div>
-		<div class="whitebox">
-			<label>ROLE</label><input type="text" name="attr_Role" />
+		<div class="prof-info biginput">
+			<h3>ROLE</h3><input type="text" name="attr_Role" />
 		</div>
-		<div class="whitebox">
-			<label>ROLE ABILITY</label><input type="text" name="attr_RoleAbility" />
+		<div class="prof-info biginput">
+			<h3>ROLE ABILITY</h3><input type="text" name="attr_RoleAbility" />
 		</div>
-		<div class="whitebox">
-			<label>NOTES</label><textarea name="attr_Notes"></textarea>
+		<div class="prof-info">
+			<h3>NOTES</h3><textarea name="attr_Notes" rows=12></textarea>
 		</div>
-		<div class="whitebox">
-			<label>HUMANITY</label>
-			<input type="number" name="attr_Humanity" /> out of <input type="number" name="attr_Humanity_max" />
+		
+		<input type="hidden" name="attr_hp_max" />
+
+		<div class="humanity">
+			<div class="title white-bg"><h3>HIT POINTS</h3></div>
+			<div class="humanity-table">
+				<div class="white-bg">CURRENT</div>
+				<div class="red-bg">MAX</div>
+				<div class="white-bg"><input type="number" name="attr_hp" /></div>
+				<div style="padding-top: 10px" class="red-bg">
+					<span name="attr_hp_max"></span>
+				</div>
+			</div>
 		</div>
-		<div class="whitebox">
-			<label>NEW CHARACTER</label>
+
+		<div class="humanity">
+			<div class="title white-bg"><h3>HUMANITY</h3></div>
+			<div class="humanity-table">
+				<div class="white-bg">CURRENT</div>
+				<div class="red-bg">MAX</div>
+				<div class="white-bg"><input type="number" name="attr_Humanity" /></div>
+				<div class="red-bg"><input type="number" name="attr_Humanity_max" /></div>
+			</div>
+		</div>
+
+		<div class="humanity">
+			<div class="title white-bg"><h3>HUMANITY</h3></div>
+			<div class="humanity-table">
+				<div class="white-bg">CURRENT</div>
+				<div class="red-bg">MAX</div>
+				<div class="white-bg"><input type="number" name="attr_Humanity" /></div>
+				<div class="red-bg"><input type="number" name="attr_Humanity_max" /></div>
+			</div>
+		</div>
+
+		<div class="prof-info">
+			<h3>NEW CHARACTER</h3>
 			<input type="hidden" name="attr_skillpoints" />
 			<input type="hidden" name="attr_statpoints" />
 			Skill Points remaining: <span name="attr_skillpoints"></span><br>
@@ -42,12 +73,6 @@
 	</div>
 
 	<div class="hp section"> 
-		<div class="health">
-				<input type="hidden" name="attr_hp_max" />
-				<label>HIT POINTS</label>
-				<input type="number" name="attr_hp" /> out of <span name="attr_hp_max"></span>
-			
-		</div>
 		<div class="injuries">
 				<label>CRITICAL INJURIES</label>
 				<textarea name="attr_injuries"></textarea>
@@ -65,7 +90,8 @@
 		</div>
 	</div>
 
-	<div class="skills skillA section"> 
+	<div class="skills skillA section">
+
 		<table>
 			<thead>
 		    	<tr>
@@ -635,20 +661,20 @@
 		</div>
 
 		<div class="section weapon">
-			<ul class="flex-weapons">
-				<li class="weapon-header weapon-name">Weapon</li>
-				<li class="weapon-header weapon-type">Type</li>
-				<li class="weapon-header dmg">DMG</li>
-				<li class="weapon-header ammo">Ammo</li>
-				<li class="weapon-header rof">ROF</li>
-			</ul>
+			<div class="flex-table">
+				<div class="bg-black-2 weapon-name">Weapon</div>
+				<div class="bg-black-2 weapon-type">Type</div>
+				<div class="bg-black-2 dmg">DMG</div>
+				<div class="bg-black-2 ammo">Ammo</div>
+				<div class="bg-black-2 rof">ROF</div>
+			</div>
 
 			<fieldset class="repeating_weapons">
-			<ul class="flex-weapons">
+			<div class="flex-table">
 				<button type="roll" name="roll_weapon_dmg" style="display: none;" value="@{DMG}"></button>
 				<input type="hidden" name="attr_WeaponMod" />
-				<li class="weapon-item weapon-name"><button name="roll_attack" type="roll" class="txt-btn" value="&{template:attack} {{critroll=[[@{WeaponMod}+10+1d10]]}} {{@{Weapontype}=true}} {{rollname=[@{Weaponname}](~repeating_weapons_weapon_dmg)}} {{failroll=[[@{WeaponMod}+1-1d10]]}}  {{weapontype=@{Weapontype}}} {{roll=[[@{WeaponMod}+1d10]]}}">Attack:</button> <input type=text name="attr_Weaponname" placeholder="Type here..."></li>
-				<li class="weapon-item weapon-type">
+				<div class="bg-white weapon-name"><button name="roll_attack" type="roll" class="txt-btn" value="&{template:attack} {{critroll=[[@{WeaponMod}+10+1d10]]}} {{@{Weapontype}=true}} {{rollname=[@{Weaponname}](~repeating_weapons_weapon_dmg)}} {{failroll=[[@{WeaponMod}+1-1d10]]}}  {{weapontype=@{Weapontype}}} {{roll=[[@{WeaponMod}+1d10]]}}">Attack:</button> <input type=text name="attr_Weaponname" placeholder="Type here..."></div>
+				<div class="bg-white weapon-type">
 					<select name="attr_Weapontype" class="Weapontype">
 						<option value="Melee">Melee</option>
     					<option value="Pistol">Pistol</option>
@@ -660,8 +686,8 @@
     					<option value="Grenade Launcher">Grenade Launcher</option>
     					<option value="Rocket Launcher">Rocket Launcher</option>
   					</select>
-				</li>
-				<li class="weapon-item dmg">
+				</div>
+				<div class="bg-white dmg">
 					<select name="attr_DMG" class="damage">
 						<option value="&{template:damage} {{result=[[1d6]]}}">1d6</option>
     					<option value="&{template:damage} {{result=[[2d6]]}}">2d6</option>
@@ -672,10 +698,10 @@
     					<option value="&{template:damage} {{result=[[7d6]]}}">7d6</option>
     					<option value="&{template:damage} {{result=[[8d6]]}}">8d6</option>
   					</select>
-				</li>
-				<li class="weapon-item ammo"><input type="number" name="attr_Ammo" />/<input type="number" name="attr_Ammo_max" /></li>
-				<li class="weapon-item rof"><input type="number" name="attr_ShieldSP" /></li>
-			</ul>
+				</div>
+				<div class="bg-white ammo"><input type="number" name="attr_Ammo" />/<input type="number" name="attr_Ammo_max" /></div>
+				<div class="bg-white rof"><input type="number" name="attr_ShieldSP" /></div>
+			</div>
 			</fieldset>
 
 
@@ -728,19 +754,19 @@
 
 <div class='lifepath'>
 	<div class="progression section">
-		<div class="alias section">
+		<div class="alias">
 			<h4>ALIAS</h4>
 			<textarea name="attr_alias" spellcheck=false></textarea>
 		</div>
-		<div class="improvement section">
+		<div class="improvement">
 			<h4>IMPROVEMENT POINTS</h4>
 			<textarea name="attr_ippoints" spellcheck=false></textarea>
 		</div>
-		<div class="reputation section">
+		<div class="reputation">
 			<h4>REPUTATION</h4>
 			<textarea name="attr_reputation" spellcheck=false></textarea>
 		</div>
-		<div class="repevents section">
+		<div class="repevents">
 			<h4>REPUTATION EVENTS</h4>
 			<textarea name="attr_repevents" spellcheck=false></textarea>
 		</div>
@@ -811,19 +837,19 @@
 	<div class="inventory section">
 		    <ul class="flex-table">
 		    	<li class="bg-yellow gear-name">Cash</li>
-				<li class="gear-item gear-notes"><input type=text name="attr_cash" placeholder="Type here...">
+				<li class="bg-white gear-notes"><input type=text name="attr_cash" placeholder="Type here...">
 				</li>
-		    	<li class="gear-ammunition gear-name">Ammunition</li>
-				<li class="gear-item   gear-notes"><input type=text name="attr_ammunition" placeholder="Type here...">
+		    	<li class="bg-yellow gear-name">Ammunition</li>
+				<li class="bg-white gear-notes"><input type=text name="attr_ammunition" placeholder="Type here...">
 				</li>
-				<li class="gear-header gear-name">Gear</li>
-				<li class="gear-header gear-notes">Notes</li>
+				<li class="bg-black-2 gear-name">Gear</li>
+				<li class="bg-black-2 gear-notes">Notes</li>
 			</ul>
 
 			<fieldset class="repeating_gear">
-			<ul class="flex-gear">
-				<li class="gear-item gear-name"><input type=text name="attr_gearname" placeholder="Type here..."></li>
-				<li class="gear-item gear-notes"><input type=text name="attr_gearnotes" placeholder="Type here..."></li>
+			<ul class="flex-table">
+				<li class="bg-white gear-name"><input type=text name="attr_gearname" placeholder="Type here..."></li>
+				<li class="bg-white gear-notes"><input type=text name="attr_gearnotes" placeholder="Type here..."></li>
 			</ul>
 			</fieldset>
 	</div>
