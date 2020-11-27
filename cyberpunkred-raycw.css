@@ -40,12 +40,12 @@ input[type=number] {
 }
 
 
-
 .sheet-netruntoggle[value="nbi"] ~ div.sheet-nbiprogram 
 ,.sheet-netruntoggle[value="blackice"] ~ div.sheet-blackice 
 ,.sheet-netruntoggle[value="hardware"] ~ div.sheet-hardware {
   display: block;
   grid-area: 2 / 1 / 3 / 4;
+  position: relative;
 }
 
 *, *:before, *:after {
@@ -66,6 +66,11 @@ select {
   width: 1200px;
   grid-template-rows: auto auto auto auto 80px;
   grid-gap: 4px;
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.sheet-main h1, .sheet-main h2, .sheet-main h3, .sheet-main h4, .sheet-main h5, .sheet-main h6 {
   font-family: 'Source Sans Pro', sans-serif;
 
 }
