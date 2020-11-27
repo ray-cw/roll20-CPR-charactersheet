@@ -1065,6 +1065,13 @@ button[type="roll"].sheet-txt-btn{
   font-size: 1.2rem;
   color: #000;
   text-shadow: none;
+  box-shadow: none;
+}
+
+.sheet-small button[type="roll"].sheet-txt-btn{
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight:bold;
 }
 
 
@@ -1090,7 +1097,7 @@ td.sheet-subskill-header {
 
 /*----------------- ROLL TEMPLATES ------------------*/
 
-.sheet-rolltemplate-skill, .sheet-rolltemplate-damage, .sheet-rolltemplate-attack {
+.sheet-rolltemplate-skill, .sheet-rolltemplate-damage, .sheet-rolltemplate-attack, .sheet-rolltemplate-deathsave {
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
 }
@@ -1112,6 +1119,52 @@ td.sheet-subskill-header {
   width: 220px;
   margin: 0 auto 4px auto;
   padding: 0;
+}
+
+.sheet-rolltemplate-deathsave div.sheet-template-container {
+  border: none !important;
+  background: black;
+  color: #fff !important;
+  position: relative;
+  clip-path: 
+    polygon(
+      0% 30px,                 /* top left */
+      30px 0%,                 /* top left */
+      calc(100% - 30px) 0%,    /* top right */
+      100% 30px,               /* top right */
+      100% 100%,               /* bottom right */
+      0%   100%                    /* bottom left */
+    );
+  width: 200px;
+  margin: 0 auto 4px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.sheet-rolltemplate-deathsave div.sheet-template-container .sheet-template-header {
+  font-size: 4rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.sheet-rolltemplate-deathsave p {
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-family: Nunito, sans-serif;;
+}
+
+.sheet-rolltemplate-deathsave div.sheet-template-container .sheet-template-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .sheet-rolltemplate-damage div.sheet-template-container {
@@ -1236,7 +1289,11 @@ td.sheet-subskill-header {
 .sheet-rolltemplate-damage .inlinerollresult,
 .sheet-rolltemplate-damage .inlinerollresult.fullcrit,
 .sheet-rolltemplate-damage .inlinerollresult.fullfail,
-.sheet-rolltemplate-damage .inlinerollresult.importantroll  {
+.sheet-rolltemplate-damage .inlinerollresult.importantroll,
+.sheet-rolltemplate-deathsave .inlinerollresult,
+.sheet-rolltemplate-deathsave .inlinerollresult.fullcrit,
+.sheet-rolltemplate-deathsave .inlinerollresult.fullfail,
+.sheet-rolltemplate-deathsave .inlinerollresult.importantroll   {
     border: none;
     background: none;
 }
