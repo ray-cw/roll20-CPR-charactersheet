@@ -94,6 +94,7 @@ select {
                        "lp rolespecific";
 }
 
+
 .sheet-nav {
   display: flex;
   align-items: flex-end;
@@ -121,7 +122,7 @@ select {
 }
 
 .sheet-big {
-  font-size: 4.6rem;
+  font-size: 4rem;
   font-weight: bold;
 }
 
@@ -829,42 +830,34 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   flex-direction: column;
 }
 
-.sheet-profile div.sheet-humanity {
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0;
-}
 
-.sheet-profile .sheet-humanity .sheet-title {
-  padding: 4px;
-  width: 150px;
-}
-
-
-.sheet-humanity-table {
+.sheet-profile .sheet-hp-humanity{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 4fr;
-  width: 100%;
-  background: none;
+  grid-template-columns: 1.4fr 1fr 1fr;
 }
 
-.sheet-humanity-table div {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-.sheet-humanity-table input[type=number]
-,.sheet-humanity-table  span {
-  width: 7rem;
+.sheet-profile .sheet-hp-humanity input{
   font-size: 4rem;
+  background: none;
   text-align: center;
-  padding: 0;
-  margin: 0;
+  width: 6rem;
+  height: 5rem;
 }
+
+.sheet-profile .sheet-hp-humanity div{
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.sheet-profile .sheet-hp-humanity div:first-child{
+  justify-content: flex-start;
+}
+
+
 
 .sheet-red-bg, .sheet-red-bg input, .sheet-red-bg h3 {
   background: none;
@@ -933,7 +926,6 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 .sheet-hp .sheet-deathsave{
   grid-area: deathsave;
   background: none;
-  text-align: left;
   color:#fff;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
