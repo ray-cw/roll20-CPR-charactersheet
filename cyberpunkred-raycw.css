@@ -772,12 +772,12 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 
 
 
-.sheet-skills input[type=number], .sheet-weaponarmor input[type=number] {
+.sheet-skills input[type=number] {
   width: 2em;
   text-align: center;
 }
 
-.sheet-skills input[type=number]:disabled, .sheet-weaponarmor input[type=number]:disabled {
+.sheet-skills input[type=number]:disabled {
   background: none;
 }
 
@@ -993,11 +993,10 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 
 .sheet-weaponarmor {
   grid-area: weaponarmor;
-  display: inline-grid;
+  display: grid;
   grid-gap: 4px;
-  grid-template-columns: 4fr 6fr;
-  grid-template-rows: 3fr 5fr 2fr;
-  padding: 5px;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto auto;
 }
 
 .sheet-weaponarmor .sheet-armor{
@@ -1006,17 +1005,18 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 
 .sheet-weaponarmor .sheet-title{
   grid-area: 1 / 1 / 2 / 2;
-}
-
-.sheet-weaponarmor .sheet-title h1{
   text-align: center;
-    color:#fff;
-  line-height:3em;
+  font-size: 3rem;
+  color:#fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-weight: bold;
 }
 
 .sheet-weaponarmor .sheet-weapon{
   grid-area: 1 / 2 / 4 / 3;
-  padding: 5px;
 }
 
 .sheet-weapon-name{
@@ -1369,11 +1369,17 @@ td.sheet-subskill-header {
 }
 
 
-.sheet-flex-table input{
+.sheet-main .sheet-flex-table div input{
   margin: 0;
   padding: 0;
-  width: 100% !important;
+  width: 100%;
+  border: none;
   height: auto;
+  min-width:0
+}
+
+.sheet-main .sheet-flex-table div input[type=number]{
+  text-align: center;
 }
 
 .sheet-netrunning .sheet-flex-table input{
