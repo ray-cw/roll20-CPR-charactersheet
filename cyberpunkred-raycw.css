@@ -103,6 +103,31 @@ select {
   margin-right: 5px;
 }
 
+.sheet-main .sheet-nav div button {
+  background: #CD272C;
+  border: 1px solid white;
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 2px 8px;
+  height: 30px;
+  border-radius: 0;
+}
+
+.sheet-nav div button:hover {
+  background: none;
+  border: 1px solid #CD272C;
+  color: #CD272C;
+}
+
+.sheet-nav div button:active {
+  box-shadow: none;
+}
+
+.sheet-main .sheet-nav button[type=roll]:before {
+    content: "";
+}
+
 .sheet-new-char {
   grid-template-columns: 1fr 1fr;
 }
@@ -727,34 +752,65 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
       100% 100%,               /* bottom right */
       0%   100%                    /* bottom left */
     );
-  text-align:right;
-  padding-right:6px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
-.sheet-statbox label {
+.sheet-stats .sheet-statbox .sheet-h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-right: 4px;
+}
+
+.sheet-statbox div {
   text-align: right;
-  padding-top: 8px;
+  padding: 4px;
+}
+
+.sheet-h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-right: 31px;
+}
+
+.sheet-statbox div.sheet-outof {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+
+
+.sheet-statbox div.sheet-outof div {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 
 .sheet-flex-table .sheet-basic button {
-  font-weight: bold;
+  font-weight: 700;
 }
 
-.sheet-stats input {
-  height: 1.3em !important;
-  border: 0;
-  text-align:center;
+.sheet-main .sheet-stats .sheet-statbox input {
+  border: none;
+  text-align:right;
   padding: 0;
   margin: 0;
-  font-size: 2rem;
-  width: 1em !important;
+  font-size: 2.2rem;
+  width: 100%;
+}
+
+.sheet-main .sheet-stats .sheet-statbox .sheet-outof input {
+  text-align: center;
 }
 
 .sheet-skills input[type=number]:disabled {
   background: none;
 }
-
 
 .sheet-hp textarea{
   width:96%;
@@ -769,9 +825,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 .sheet-profile {
   grid-area: profile;
   display: grid;
-  grid-gap: 4px;
-
-  
+  grid-gap: 4px;  
 }
 
 .sheet-shownewcharacter[value="0"] ~ .sheet-profile {
@@ -1051,7 +1105,7 @@ td.sheet-subskill-header {
 
 /*----------------- ROLL TEMPLATES ------------------*/
 
-.sheet-rolltemplate-skill, .sheet-rolltemplate-damage, .sheet-rolltemplate-attack, .sheet-rolltemplate-deathsave {
+.sheet-rolltemplate-skill, .sheet-rolltemplate-damage, .sheet-rolltemplate-attack, .sheet-rolltemplate-deathsave, .sheet-rolltemplate-initiative {
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
 }
@@ -1077,7 +1131,7 @@ td.sheet-subskill-header {
 
 .sheet-rolltemplate-deathsave div.sheet-template-container {
   border: none !important;
-  background: black;
+  background: #0f0f0f;
   color: #fff !important;
   position: relative;
   clip-path: 
@@ -1099,6 +1153,31 @@ td.sheet-subskill-header {
   text-align: center;
 }
 
+.sheet-rolltemplate-initiative div.sheet-template-container {
+  border: none !important;
+  background: #fff;
+  color: #CD272C !important;
+  position: relative;
+  clip-path: 
+    polygon(
+      0% 30px,                 /* top left */
+      30px 0%,                 /* top left */
+      calc(100% - 30px) 0%,    /* top right */
+      100% 30px,               /* top right */
+      100% 100%,               /* bottom right */
+      0%   100%                    /* bottom left */
+    );
+  width: 200px;
+  margin: 0 auto 4px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.sheet-rolltemplate-initiative div.sheet-template-container .sheet-template-header,
 .sheet-rolltemplate-deathsave div.sheet-template-container .sheet-template-header {
   font-size: 4rem;
   height: 5rem;
@@ -1247,7 +1326,11 @@ td.sheet-subskill-header {
 .sheet-rolltemplate-deathsave .inlinerollresult,
 .sheet-rolltemplate-deathsave .inlinerollresult.fullcrit,
 .sheet-rolltemplate-deathsave .inlinerollresult.fullfail,
-.sheet-rolltemplate-deathsave .inlinerollresult.importantroll   {
+.sheet-rolltemplate-deathsave .inlinerollresult.importantroll,
+.sheet-rolltemplate-initiative .inlinerollresult,
+.sheet-rolltemplate-initiative .inlinerollresult.fullcrit,
+.sheet-rolltemplate-initiative .inlinerollresult.fullfail,
+.sheet-rolltemplate-initiative .inlinerollresult.importantroll   {
     border: none;
     background: none;
 }
@@ -1343,7 +1426,3 @@ td.sheet-subskill-header {
   text-align: center;
 }
 
-.sheet-break {
-  flex-basis: 100%;
-  height: 0;
-}
