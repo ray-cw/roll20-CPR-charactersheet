@@ -24,3 +24,5 @@ to the sheet.
 - [ ] Support for multiclassing
 - [ ] Detecting the wound level of the player based off current health / max health and automatically applying the penalties to rolls
 - [ ] More details/space for Critical Injuries & Addictions
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=ALJGRJD8H7JMN)
