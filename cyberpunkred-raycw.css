@@ -348,8 +348,18 @@ select {
   font-size: 1.2rem;
 }
 
+.sheet-skills .sheet-flex-table div{
+  height: 24px;
+}
+
 .sheet-skills .sheet-flex-table .sheet-skill-name{
   width: 60%;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.sheet-skills .sheet-flex-table .sheet-skill-subcategory{
+  width: 100%;
   flex-direction: row;
   justify-content: flex-start;
 }
