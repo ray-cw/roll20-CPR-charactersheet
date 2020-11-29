@@ -70,11 +70,6 @@ select {
 
 }
 
-.sheet-main h1, .sheet-main h2, .sheet-main h3, .sheet-main h4, .sheet-main h5, .sheet-main h6 {
-  font-family: 'Source Sans Pro', sans-serif;
-
-}
-
 
 .sheet-character {
   width: 1200px;
@@ -245,7 +240,7 @@ select {
   color: #0f0f0f;
   font-weight: bold;
   margin-bottom: 4px;
-  padding: 4px;
+  padding: 2px 4px;
 }
 
 .sheet-bg-black {
@@ -261,7 +256,7 @@ select {
   color: white;
   font-weight: bold;
   margin-bottom: 4px;
-  padding: 4px;
+  padding: 2px 4px;
 }
 
 .sheet-bg-red {
@@ -277,7 +272,7 @@ select {
   color: #0f0f0f;
   font-weight: bold;
   margin-bottom: 4px;
-  padding: 4px;
+  padding: 2px 4px;
 }
 
 .sheet-bg-black-item {
@@ -346,6 +341,47 @@ select {
   width: 79.5%;
   
 }
+
+/** flex table for skills **/
+
+.sheet-skills .sheet-flex-table{
+  font-size: 1.2rem;
+}
+
+.sheet-skills .sheet-flex-table .sheet-skill-name{
+  width: 60%;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.sheet-skill-base{
+  width: 10%;
+}
+
+.sheet-skill-mod{
+  width: 12%;
+}
+
+.sheet-skill-total{
+  width: 14%;
+}
+
+/** flex table for armor **/
+
+.sheet-armor-piece {
+  width: 60%;
+}
+
+.sheet-armor-sp {
+  width: 20%;
+}
+
+
+.sheet-armor-penalty {
+  width: 18%;
+}
+
+
 
 /* Customizing the repeating section for netrunning */
 
@@ -691,73 +727,8 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 }
 
 
-.sheet-skills table, .sheet-weaponarmor table {
-  border-spacing: 4px;
-  border-collapse: separate;
-  width: 100%;
-  font-size: 1.2rem;
-}
-
-.sheet-skills th, .sheet-weaponarmor th {
-  padding: 0.2rem 0.5rem;
-  color: white;
-  background: #0f0f0f;
-  text-align: center;
-}
-
-.sheet-skills th:first-child {
-  text-align: left;
-  width: 200px;
-}
-
-.sheet-weaponarmor th:first-child {
-  text-align: left;
-  width: 200px;
-}
-
-.sheet-skills td, .sheet-weaponarmor td {
-  padding: 0.2rem 0.5rem;
-  background: white;
-  text-align: center;
-}
-
-.sheet-skills td:first-child, .sheet-weaponarmor td:first-child{
-  text-align: left;
-  font-weight: normal;
-}
-
-
-.sheet-skills td:first-child button, .sheet-weaponarmor td:first-child button{
-  text-align: left;
-  width: 100%;
-  font-weight: normal;
-  font-size: 1.2rem;
-}
-
-.sheet-languages{
-  width: 50px !important;
-}
-
-.sheet-local-expert{
-  width: 63px !important;
-}
-
-.sheet-science{
-  width: 40px !important;
-}
-
-.sheet-instrument{
-  width: 58px !important;
-}
-
-.sheet-basic td:first-child button {
-  text-align: left;
+.sheet-flex-table .sheet-basic button {
   font-weight: bold;
-}
-
-.sheet-skills input, .sheet-weaponarmor input {
-  height: 1.3em !important;
-  border: 0;
 }
 
 .sheet-stats input {
@@ -770,34 +741,10 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   width: 1em !important;
 }
 
-
-
-.sheet-skills input[type=number] {
-  width: 2em;
-  text-align: center;
-}
-
 .sheet-skills input[type=number]:disabled {
   background: none;
 }
 
-.sheet-skills input[type=text] {
-  width: 8rem;
-  margin-left: 0px;
-  padding: 0 !important;
-}
-
-.sheet-weaponarmor input[type=text] {
-  width: 15rem;
-  margin-left: 0px;
-  padding: 0 !important;
-}
-
-.sheet-weaponarmor .sheet-weapon input[type=text] {
-  width: 12rem;
-  margin-left: 0px;
-  padding: 0 !important;
-}
 
 .sheet-hp textarea{
   width:96%;
