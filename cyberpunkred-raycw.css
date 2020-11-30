@@ -113,6 +113,7 @@ select {
 
 .sheet-nav {
   display: flex;
+  align-items: flex-end;
 }
 .sheet-nav div {
   margin-right: 5px;
@@ -174,7 +175,7 @@ select {
   display:flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .sheet-small {
@@ -805,7 +806,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
     );
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
 }
 
 .sheet-stats .sheet-statbox .sheet-h2 {
@@ -828,7 +829,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 .sheet-statbox div.sheet-outof {
   display: flex;
   flex-direction: row;
-  align-content: center;
+  align-items: center;
   justify-content: center;
 }
 
@@ -837,7 +838,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 .sheet-statbox div.sheet-outof div {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   justify-content: center;
 }
 
@@ -853,6 +854,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   margin: 0;
   font-size: 2.2rem;
   width: 100%;
+  min-width: 0;
 }
 
 .sheet-main .sheet-stats .sheet-statbox .sheet-outof input {
@@ -1073,7 +1075,7 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   font-weight: bold;
 }
 
@@ -1200,7 +1202,7 @@ td.sheet-subskill-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -1224,7 +1226,7 @@ td.sheet-subskill-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -1235,7 +1237,7 @@ td.sheet-subskill-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .sheet-rolltemplate-deathsave p {
@@ -1248,7 +1250,7 @@ td.sheet-subskill-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .sheet-rolltemplate-damage div.sheet-template-container {
@@ -1484,7 +1486,7 @@ td.sheet-subskill-header {
 .sheet-settings-title {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   justify-content: center;
 }
 
