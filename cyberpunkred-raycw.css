@@ -26,9 +26,58 @@ input[type=number] {
   display: none;
 }
 
+/** MOOK STATS **/
+
+.sheet-mook{
+  width: 1000px;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-columns: 1fr;
+  grid-gap:4px;
+}
+
+.sheet-mook div.sheet-category {
+  background: #CD272C;
+}
+
+.sheet-mook-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.sheet-mook-hp {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.sheet-mook-skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "skillA skillB skillC";
+}
 
 
 
+.sheet-mook-hp .sheet-mook-hitpoints {
+  grid-area: 1 / 1 / 2 / 3;
+  background: none;
+}
+
+.sheet-mook-hp .sheet-mook-wound-state {
+  grid-area: 1 / 3 / 2 / 5;
+}
+
+
+
+.sheet-mook-stats div,
+.sheet-mook-hp div {
+  background: #fff;
+}
 
 
 .sheet-tabstoggle[value="character"] ~ div.sheet-character,
@@ -898,20 +947,24 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 }
 
 
-.sheet-profile .sheet-hp-humanity{
+.sheet-profile .sheet-hp-humanity,
+.sheet-mook-hp .sheet-mook-hitpoints {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
 }
 
-.sheet-profile .sheet-hp-humanity input{
+.sheet-profile .sheet-hp-humanity input,
+.sheet-mook-hp .sheet-mook-hitpoints input {
   font-size: 4rem;
   background: none;
   text-align: center;
   width: 6rem;
   height: 5rem;
+  border: none;
 }
 
-.sheet-profile .sheet-hp-humanity div{
+.sheet-profile .sheet-hp-humanity div,,
+.sheet-mook-hp .sheet-mook-hitpoints div{
   padding: 4px;
   display: flex;
   flex-direction: column;
@@ -926,7 +979,8 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
 
 
 
-.sheet-red-bg, .sheet-red-bg input, .sheet-red-bg h3 {
+.sheet-red-bg, .sheet-red-bg input, .sheet-red-bg h3,
+.sheet-mook-hitpoints .sheet-red-bg, .sheet-mook-hitpoints .sheet-red-bg input, .sheet-mook-hitpoints .sheet-red-bg h3 {
   background: none;
   color:#fff;
 }
@@ -1000,7 +1054,8 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   grid-gap: 4px;
 }
 
-.sheet-hp .sheet-deathsave div{
+.sheet-hp .sheet-deathsave div,
+.sheet-mook-hp .sheet-mook-deathsave{
   background: #2a2a2a;
   color:#fff;
   display: flex;
@@ -1061,11 +1116,21 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   grid-template-rows: auto auto;
 }
 
-.sheet-weaponarmor .sheet-armor{
+.sheet-mook-weapons {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto auto;
+  padding: 10px;
+}
+
+.sheet-weaponarmor .sheet-armor,
+.sheet-mook-weapons .sheet-armor {
   grid-area: 2 / 1 / 3 / 2;
 }
 
-.sheet-weaponarmor .sheet-title{
+.sheet-weaponarmor .sheet-title,
+.sheet-mook-weapons .sheet-title{
   grid-area: 1 / 1 / 2 / 2;
   text-align: center;
   font-size: 3rem;
@@ -1077,7 +1142,8 @@ input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   font-weight: bold;
 }
 
-.sheet-weaponarmor .sheet-weapon{
+.sheet-weaponarmor .sheet-weapon,
+.sheet-mook-weapons .sheet-weapon{
   grid-area: 1 / 2 / 4 / 3;
 }
 
