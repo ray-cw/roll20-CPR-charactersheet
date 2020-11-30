@@ -1,13 +1,17 @@
 <div class='main'>
 
+
+
 	<div class="nav">
-		<div><button type="action" name="act_character" >CHARACTER</button></div>
-		<div><button type="action" name="act_lifepath" >LIFEPATH & INVENTORY</button></div>
-		<div><button type="action" name="act_cyberware" >CYBERWARE</button></div>
-		<div><button type="action" name="act_netrunning" >NETRUNNING</button></div>
-		<div><button type="action" name="act_newcharacter" >TOGGLE STAT/SKILLPOINT TRACKER</button></div>
-		<div><button type="roll" name="roll_initiative" value="&{template:initiative} {{name=Initiative}} {{roll=[[d10+@{Reflex} &{tracker}]]}}">ROLL INITIATIVE</button></div>
-		<div><button type="action" name="act_resetbase" >RESET BASE SKILLS</button></div>
+		<input type="hidden" class="mooktoggle" name="attr_mooksheet_flag" />
+
+		<div class="character-mode"><button type="action" name="act_character" >CHARACTER</button></div>
+		<div class="mook-mode"><button type="action" name="act_mook" >MOOK</button></div>
+		<div class="character-mode"><button type="action" name="act_lifepath" >LIFEPATH & INVENTORY</button></div>
+		<div class="character-mode"><button type="action" name="act_cyberware" >CYBERWARE</button></div>
+		<div class="character-mode"><button type="action" name="act_netrunning" >NETRUNNING</button></div>
+		<div class="character-mode"><button type="roll" name="roll_initiative" value="&{template:initiative} {{name=Initiative}} {{roll=[[d10+@{Reflex} &{tracker}]]}}">ROLL INITIATIVE</button></div>
+		<div><button type="action" name="act_settings" >SETTINGS</button></div>
 	</div>
 	<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
 	<div class='character'>
@@ -1326,6 +1330,33 @@
 	<div class="foot">
 	</div>
 
+	<div class="settings">
+
+		<div class="nav">
+			<div><button class="options" type="action" name="act_resetbase" >RESET BASE SKILLS</button></div>
+			<div><button class="options" type="action" name="act_newcharacter" >TOGGLE STAT/SKILLPOINT TRACKER</button></div>
+		</div>
+
+		<div class="my-settings">
+			<div class="option">
+				<div class="settings-title">ENABLE MOOK SHEET</div>
+				<div class='settings-checkbox'>
+					<input type="hidden" class="mooktoggle" name="attr_mooksheet_flag" />
+					<button type="action" name="act_mooksheet" class="mooktoggle">
+						<span class="checked">✓</span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="mook">
+
+		Work In Progress!
+
+	</div>
+
 </div>
 
 
@@ -1622,7 +1653,7 @@
 			});
 	});
 
-	const buttonlist = ["character","lifepath","cyberware","netrunning"];
+	const buttonlist = ["character","lifepath","cyberware","netrunning","settings","mook"];
 	buttonlist.forEach(button => {
 		on(`clicked:${button}`, function() {
 			setAttrs({
@@ -1757,7 +1788,7 @@
 
 
 
-	const toggleList = ["cbaudio","lefteye","righteye","rightarm","leftarm","neurallink","rightleg","leftleg"];
+	const toggleList = ["cbaudio","lefteye","righteye","rightarm","leftarm","neurallink","rightleg","leftleg","mooksheet"];
 	toggleList.forEach(function(button) {
 		on(`clicked:${button}`, function() {
 			const flag = `${button}_flag`;

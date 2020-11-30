@@ -20,15 +20,23 @@ input[type=number] {
 .sheet-lifepath,
 .sheet-cyberware,
 .sheet-netrunning, 
-.sheet-new-char {
+.sheet-new-char,
+.sheet-settings,
+.sheet-mook {
   display: none;
 }
+
+
+
+
 
 
 .sheet-tabstoggle[value="character"] ~ div.sheet-character,
 .sheet-tabstoggle[value="lifepath"] ~ div.sheet-lifepath,
 .sheet-tabstoggle[value="cyberware"] ~ div.sheet-cyberware,
 .sheet-tabstoggle[value="netrunning"] ~ div.sheet-netrunning,
+.sheet-tabstoggle[value="settings"] ~ div.sheet-settings,
+.sheet-tabstoggle[value="mook"] ~ div.sheet-mook,
 .sheet-shownewcharacter[value="1"] ~ .sheet-profile div.sheet-new-char {
   display: grid;
 }
@@ -94,10 +102,17 @@ select {
                        "lp rolespecific";
 }
 
+.sheet-settings {
+  width: 1200px;
+  grid-gap: 4px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+}
+
+
 
 .sheet-nav {
   display: flex;
-  align-items: flex-end;
 }
 .sheet-nav div {
   margin-right: 5px;
@@ -114,10 +129,31 @@ select {
   border-radius: 0;
 }
 
+.sheet-main .sheet-nav div button {
+  background: #CD272C;
+  border: 1px solid white;
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 2px 8px;
+  height: 30px;
+  border-radius: 0;
+}
+
+.sheet-main .sheet-nav div button.sheet-options {
+  background: #0f0f0f;
+}
+
 .sheet-nav div button:hover {
   background: none;
   border: 1px solid #CD272C;
   color: #CD272C;
+}
+
+.sheet-main .sheet-nav div button.sheet-options:hover {
+  color: #0f0f0f;
+  background: none;
+  border: 1px solid #0f0f0f;
 }
 
 .sheet-nav div button:active {
@@ -492,14 +528,15 @@ select {
 }
 
 /* Configure a container for the toggle */
-.sheet-cyberware .sheet-cwtable .sheet-cyberware-checkbox {
+.sheet-cyberware .sheet-cwtable .sheet-cyberware-checkbox,
+.sheet-settings .sheet-my-settings .sheet-settings-checkbox {
   display: inline-flex;
   align-items: center;
   padding: 0;
 }
 
 /* Configure the button styling. This example makes it look like a checkbox. */
-button.sheet-toggle {
+button.sheet-toggle, button.sheet-mooktoggle {
   padding: 0;
   border: none;
   background: none;
@@ -516,11 +553,25 @@ button.sheet-toggle {
   font-weight: bold;
 }
 
+.sheet-settings .sheet-settings-checkbox button.sheet-mooktoggle {
+  border: 1px solid #0f0f0f;
+}
+
+input.sheet-mooktoggle:not([value="1"]) ~ button.sheet-mooktoggle > span.sheet-checked, {
+  display: none;
+}
+
+input.sheet-mooktoggle:not([value="0"]) ~ div.sheet-character-mode,
+input.sheet-mooktoggle:not([value="1"]) ~ div.sheet-mook-mode {
+  display: none;
+}
 
 /* Hide the "checked" section of the toggle if the attribute value is not "1". */
 input.sheet-toggle:not([value="1"]) ~ button.sheet-toggle > span.sheet-checked {
   display: none;
 }
+
+
 
 
 .sheet-cyberware .sheet-cwtable div {
@@ -1426,3 +1477,23 @@ td.sheet-subskill-header {
   text-align: center;
 }
 
+.sheet-my-settings {
+  display: flex;
+}
+
+.sheet-settings-title {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.sheet-my-settings div {
+  margin: 4px;
+  padding: 4px;
+}
+
+.sheet-option {
+  display: flex;
+  border: 1px solid #0f0f0f;
+}
