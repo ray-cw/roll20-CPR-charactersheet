@@ -6,6 +6,7 @@
 		<input type="hidden" class="mooktoggle" name="attr_mooksheet_flag" value='0' />
 
 		<div class="character-mode"><button type="action" name="act_character" >CHARACTER</button></div>
+		<div class="character-mode"><button type="action" name="act_roleabilities" >ROLES/ROLE ABILITIES</button></div>
 		<div class="mook-mode"><button type="action" name="act_mook" >MOOK</button></div>
 		<div class="character-mode"><button type="action" name="act_lifepath" >LIFEPATH & INVENTORY</button></div>
 		<div class="character-mode"><button type="action" name="act_cyberware" >CYBERWARE</button></div>
@@ -1352,9 +1353,125 @@
 	</div>
 
 	<div class="mook">
-
 		Work In Progress!
+	</div>
 
+	<div class="roleabilities">
+		<fieldset class="repeating_roles">
+			<div class="roleability-section">
+				<div class="roleability-header">
+					<input type=text spellcheck=false name="attr_rolename" placeholder="Insert Role...">
+				</div>
+
+				<div class="roleability-information">
+					<div>
+						ABILITY NAME:
+					</div>
+					<div>
+						<input type=text spellcheck=false name="attr_roleabilityname" placeholder="(i.e. Interface)">
+					</div>
+					<div class="role-name">
+						RANK:
+					</div>
+					<div class="role-name">
+						<input type=number spellcheck=false name="attr_roleabilityrank" value=0>
+					</div>
+				</div>
+
+				<div class="role-description">
+
+					<b>ROLE INFORMATION</b>
+					<div class="auto-expand">
+						<span name="attr_roledescription"></span>
+						<textarea spellcheck=false name="attr_roledescription"></textarea>
+					</div>
+				</div>
+
+
+				<div class="rolesubskills">
+					<div class="flex-table">
+						<div class="bg-brown max-width">DEFINE SUB-SKILLS</div>
+						<div class="bg-black-2 subskill-name">Name</div>
+						<div class="bg-black-2 subskill-rank">Rank</div>
+						<div class="bg-black-2 subskill-effects">Effects</div>
+						
+						<div class="bg-white subskill-name">
+							<input type=text name="attr_subskill-name-A">
+						</div>
+						<div class="bg-white subskill-rank">
+							<input type=text name="attr_subskill-rank-A">
+						</div>
+						<div class="bg-white subskill-effects">
+							<input type=text name="attr_subskill-effects-A">
+						</div>
+
+						<div class="bg-white subskill-name">
+							<input type=text name="attr_subskill-name-B">
+						</div>
+						<div class="bg-white subskill-rank">
+							<input type=text name="attr_subskill-rank-B">
+						</div>
+						<div class="bg-white subskill-effects">
+							<input type=text name="attr_subskill-effects-B">
+						</div>
+
+						<div class="bg-white subskill-name">
+							<input type=text name="attr_subskill-name-C">
+						</div>
+						<div class="bg-white subskill-rank">
+							<input type=text name="attr_subskill-rank-C">
+						</div>
+						<div class="bg-white subskill-effects">
+							<input type=text name="attr_subskill-effects-C">
+						</div>
+
+						<div class="bg-white subskill-name">
+							<input type=text name="attr_subskill-name-D">
+						</div>
+						<div class="bg-white subskill-rank">
+							<input type=text name="attr_subskill-rank-D">
+						</div>
+						<div class="bg-white subskill-effects">
+							<input type=text name="attr_subskill-effects-D">
+						</div>
+
+						<div class="bg-white subskill-name">
+							<input type=text name="attr_subskill-name-E">
+						</div>
+						<div class="bg-white subskill-rank">
+							<input type=text name="attr_subskill-rank-E">
+						</div>
+						<div class="bg-white subskill-effects">
+							<input type=text name="attr_subskill-effects-E">
+						</div>
+
+						<div class="bg-white subskill-name">
+							<input type=text name="attr_subskill-name-F">
+						</div>
+						<div class="bg-white subskill-rank">
+							<input type=text name="attr_subskill-rank-F">
+						</div>
+						<div class="bg-white subskill-effects">
+							<input type=text name="attr_subskill-effects-F">
+						</div>
+
+					</div>
+				</div>
+
+				<!-- WIP
+				<div class="roleabilityrolls">
+					<div class="flex-table">
+						<div class="bg-brown max-width">DEFINE ROLLS (Result: 1d10 + SKILL + RANK + STAT)</div>
+						<div class="bg-black-2 roleability-roll-name">Name</div>
+						<div class="bg-black-2 roleability-roll-skill">SKILL</div>
+						<div class="bg-black-2 roleability-roll-rank">RANK</div>
+						<div class="bg-black-2 roleability-roll-stat">STAT</div>
+						<div class="bg-placeholder subskill-placeholder">PLACEHOLDER</div>						
+					</div>
+				</div>
+				-->
+			</div>
+		</fieldset>
 	</div>
 
 </div>
@@ -1653,7 +1770,7 @@
 			});
 	});
 
-	const buttonlist = ["character","lifepath","cyberware","netrunning","settings","mook"];
+	const buttonlist = ["character","lifepath","cyberware","netrunning","settings","mook","roleabilities"];
 	buttonlist.forEach(button => {
 		on(`clicked:${button}`, function() {
 			setAttrs({
